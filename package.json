@@ -1,0 +1,11 @@
+{
+  "name": "node-mentoring",
+  "version": "1.0.0",
+  "description": "Node.js mentoring",
+  "scripts": {},
+  "author": "Yura Petrashenko",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
