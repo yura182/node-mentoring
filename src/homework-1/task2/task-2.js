@@ -2,14 +2,14 @@ const fs = require('fs')
 const csv = require('csvtojson')
 const { pipeline } = require('stream')
 
-const sourceFile = './resources/books.csv'
-const targetFile = './resources/books.txt'
+const readStream = fs.createReadStream('./resources/books.csv')
+const writeStream = fs.createWriteStream('./resources/books.txt')
 
 pipeline(
-  fs.createReadStream(sourceFile),
+  readStream,
   csv(),
-  fs.createWriteStream(targetFile),
-  (err) => processFinishedPipeline(err)
+  writeStream,
+  processFinishedPipeline
 )
 
 function processFinishedPipeline (error) {
