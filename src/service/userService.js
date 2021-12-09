@@ -27,8 +27,7 @@ function updateUser (id, userData) {
 function getSuggestedUsers (loginSubstring, limit) {
   const allUsers = userRepository.getUsers()
   const suggestedUsers = allUsers
-    .filter(user => user.isDeleted === false)
-    .filter(user => user.login.includes(loginSubstring))
+    .filter(user => user.isDeleted === false && user.login.includes(loginSubstring))
     .sort((firstUser, secondUser) => firstUser.login.localeCompare(secondUser.login))
 
   return suggestedUsers.slice(0, limit)

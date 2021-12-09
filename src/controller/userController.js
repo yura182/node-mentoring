@@ -15,7 +15,7 @@ function getUserById (req, res) {
     res.status(StatusCodes.NOT_FOUND).json({ message: 'User not found' })
   }
 
-  res.json(userService.getUser(id))
+  res.json(user)
 }
 
 function updateUser (req, res) {

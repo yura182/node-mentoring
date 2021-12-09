@@ -12,8 +12,7 @@ const userModelSchema = Joi.object({
   password: Joi.string()
     .alphanum()
     .min(6)
-    .pattern(new RegExp('\\d+'))
-    .pattern(new RegExp('[a-zA-Z]+'))
+    .pattern(new RegExp(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/))
     .required(),
   age: Joi.number()
     .min(4)

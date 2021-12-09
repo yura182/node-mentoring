@@ -18,8 +18,7 @@ function getUserByLogin (login) {
   const allUsers = Array.from(getUsers())
 
   return allUsers
-    .filter(user => user.isDeleted === false)
-    .find(user => user.login === login)
+    .find(user => user.isDeleted === false && user.login === login )
 }
 
 function getUsers () {
