@@ -2,12 +2,15 @@ import express from 'express'
 import userRouter from './router/userRouter'
 import handleValidationError from './error/handleValidationError'
 import handleError from './error/errorHandler'
+import logMethodInvocation from './logger/infoLoggerMidelware'
 
 const PORT = process.env.PORT || 8182
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+app.use(logMethodInvocation)
 
 app.use('/api/users', userRouter)
 
