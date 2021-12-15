@@ -2,18 +2,18 @@ import { createLogger, format, transports } from 'winston'
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss.SSS'
 
-const sanitizeLogMessage = format(info => {
-  const { message } = info
-  info.message = message.replace(new RegExp('"password":".+?"'), '"password":"*****"')
-  return info
-})
-
 const print = format.printf(info => {
-  const message = `[${ info.timestamp }] ${ info.level }: ${ info.message }`
+  let message = `[${ info.timestamp }] ${ info.level }: ${ info.message }`
 
-  return info.stack
-    ? `${message}\n${info.stack}`
-    : message
+  if (info.context) {
+    message = `${message}. Error in method: [${info.context.method}], method params: ${JSON.stringify(info.context.params)}.`
+  }
+
+  if (info.stack) {
+    message = `${message}\n${info.stack}`
+  }
+
+  return sanitizeLogMessage(message)
 })
 
 const methodInvocationLogger = createLogger({
@@ -21,7 +21,6 @@ const methodInvocationLogger = createLogger({
     format.colorize(),
     format.splat(),
     format.timestamp({ format: DATE_TIME_FORMAT }),
-    sanitizeLogMessage(),
     print
   ),
   transports: [new transports.Console()],
@@ -51,6 +50,10 @@ const generalLogger = createLogger({
   exitOnError: false,
   level: 'debug'
 })
+
+function sanitizeLogMessage (message) {
+  return message.replace(new RegExp('"password":".+?"'), '"password":"*****"')
+}
 
 export {
   methodInvocationLogger,
