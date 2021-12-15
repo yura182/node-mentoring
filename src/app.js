@@ -1,5 +1,6 @@
 import express from 'express'
 import userRouter from './router/userRouter'
+import internalRouter from './router/internalRouter'
 import handleValidationError from './error/handleValidationError'
 import handleError from './error/errorHandler'
 import logMethodInvocation from './logger/infoLoggerMidelware'
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(logMethodInvocation)
 
 app.use('/api/users', userRouter)
+app.use('/api/internal', internalRouter)
 
 app.use(handleValidationError)
 app.use(handleError)

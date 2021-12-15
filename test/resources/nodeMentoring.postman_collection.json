@@ -1,0 +1,183 @@
+{
+  "info": {
+    "_postman_id": "69f3b50c-8155-4725-beb6-029d7511cc90",
+    "name": "nodeMentoringHW2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"John\",\r\n    \"password\": \"1234tt\",\r\n    \"age\": 30\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8182/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8182/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get users suggested list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8182/api/users/suggest?loginSubstring=y&limit=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users",
+            "suggest"
+          ],
+          "query": [
+            {
+              "key": "loginSubstring",
+              "value": "y"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get user by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8182/api/users/b668c72c-7036-437b-97ec-cd4ef77da2c5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users",
+            "b668c72c-7036-437b-97ec-cd4ef77da2c5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update user",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"Tom\",\r\n    \"password\": \"234wwww\",\r\n    \"age\": 35\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8182/api/users/b668c72c-7036-437b-97ec-cd4ef77da2c5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users",
+            "b668c72c-7036-437b-97ec-cd4ef77da2c5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete user",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8182/api/users/b668c72c-7036-437b-97ec-cd4ef77da2c5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "users",
+            "b668c72c-7036-437b-97ec-cd4ef77da2c5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Internal - change log level",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8182/api/internal/logger/debug",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8182",
+          "path": [
+            "api",
+            "internal",
+            "logger",
+            "debug"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
