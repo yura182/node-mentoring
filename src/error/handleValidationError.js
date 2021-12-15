@@ -1,4 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
+import { generalLogger as logger } from '../logger/logger'
+
+const ERROR_MESSAGE = 'Error occurred.'
 
 function handleValidationError (err, req, res, next) {
   if (err && err.error && err.error.isJoi) {
@@ -6,6 +9,7 @@ function handleValidationError (err, req, res, next) {
       return { errorMessage: details.message }
     })
 
+    logger.warn(ERROR_MESSAGE, err.error)
     res.status(StatusCodes.BAD_REQUEST).json({ errors: errorMessages })
   } else {
     return next(err)
