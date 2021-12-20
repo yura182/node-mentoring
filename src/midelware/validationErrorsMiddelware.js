@@ -1,9 +1,9 @@
 import { StatusCodes } from 'http-status-codes'
 import { generalLogger as logger } from '../logger/logger'
 
-const ERROR_MESSAGE = 'Error occurred.'
+const ERROR_MESSAGE = 'Validation error occurred.'
 
-function handleValidationError (err, req, res, next) {
+function handleError (err, req, res, next) {
   if (err && err.error && err.error.isJoi) {
     const errorMessages = err.error.details.map(details => {
       return { errorMessage: details.message }
@@ -16,4 +16,4 @@ function handleValidationError (err, req, res, next) {
   }
 }
 
-export default handleValidationError
+export default handleError

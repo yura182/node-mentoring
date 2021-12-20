@@ -6,7 +6,7 @@ const print = format.printf(info => {
   let message = `[${ info.timestamp }] ${ info.level }: ${ info.message }`
 
   if (info.context) {
-    message = `${message}. Error in method: [${info.context.method}], method params: ${JSON.stringify(info.context.params)}.`
+    message = `${message}.\n Method: ${info.context.method}, URL: ${info.context.url}, Error message: ${info.context.message}.`
   }
 
   if (info.stack) {
@@ -16,7 +16,7 @@ const print = format.printf(info => {
   return sanitizeLogMessage(message)
 })
 
-const methodInvocationLogger = createLogger({
+const consoleLogger = createLogger({
   format: format.combine(
     format.colorize(),
     format.splat(),
@@ -56,6 +56,6 @@ function sanitizeLogMessage (message) {
 }
 
 export {
-  methodInvocationLogger,
+  consoleLogger,
   generalLogger
 }

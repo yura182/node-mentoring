@@ -8,7 +8,7 @@ function createUser (req, res, next) {
 
     res.status(StatusCodes.CREATED).json(user)
   } catch (error) {
-    error.context = getErrorContext(createUser.name, { userData })
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
@@ -24,7 +24,7 @@ function getUserById (req, res, next) {
 
     res.json(user)
   } catch (error) {
-    error.context = getErrorContext(getUserById.name, { id })
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
@@ -37,7 +37,7 @@ function updateUser (req, res, next) {
 
     res.json(user)
   } catch (error) {
-    error.context = getErrorContext(updateUser.name, { id, userData })
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
@@ -49,7 +49,7 @@ function getAutoSuggestUsers (req, res, next) {
 
     res.json(users)
   } catch (error) {
-    error.context = getErrorContext(getAutoSuggestUsers.name, { loginSubstring, limit })
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
@@ -58,7 +58,7 @@ function getAllUsers (req, res, next) {
   try {
     res.json(userService.getAllUsers())
   } catch (error) {
-    error.context = getErrorContext(getAllUsers.name, {})
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
@@ -70,15 +70,16 @@ function deleteUser (req, res, next) {
 
     res.json(deletedUser)
   } catch (error) {
-    error.context = getErrorContext(deleteUser.name, { id })
+    error.context = getErrorContext(req, error)
     return next(error)
   }
 }
 
-function getErrorContext (method, params) {
+function getErrorContext (req, error) {
   return {
-    method,
-    params
+    method: req.method,
+    url: req.originalUrl,
+    message: error.message
   }
 }
 

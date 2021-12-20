@@ -8,6 +8,7 @@ import {
   getUserById,
   updateUser
 } from '../controller/userController'
+import executionTimeControllerWrapper from '../controller/wrapper/executionTimeControllerWrapper'
 
 const router = express.Router()
 
@@ -16,7 +17,7 @@ router.route('/suggest')
 
 router.route('/')
   .get(getAllUsers)
-  .post(userModelValidator, createUser)
+  .post(userModelValidator, executionTimeControllerWrapper(createUser))
 
 router.route('/:id')
   .get(idParameterValidator, getUserById)

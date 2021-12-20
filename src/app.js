@@ -1,10 +1,11 @@
 import express from 'express'
 import userRouter from './router/userRouter'
 import internalRouter from './router/internalRouter'
-import handleValidationError from './error/handleValidationError'
-import handleError from './error/errorHandler'
-import logMethodInvocation from './logger/infoLoggerMidelware'
+import validationErrorHandler from './midelware/validationErrorsMiddelware'
+import dbErrorHandler from './midelware/dbErrorsMiddleware'
+import globalErrorHandler from './midelware/globalErrorsMiddleware'
 import { generalLogger as logger } from './logger/logger'
+import { requestFileLogger, requestConsoleLogger } from './midelware/requestLogger'
 
 const PORT = process.env.PORT || 8182
 const app = express()
@@ -12,13 +13,15 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use(logMethodInvocation)
+app.use(requestFileLogger)
+app.use(requestConsoleLogger)
 
 app.use('/api/users', userRouter)
 app.use('/api/internal', internalRouter)
 
-app.use(handleValidationError)
-app.use(handleError)
+app.use(validationErrorHandler)
+app.use(dbErrorHandler)
+app.use(globalErrorHandler)
 
 app.listen(PORT, () => console.log(`Server started on port ${ PORT }`))
 
