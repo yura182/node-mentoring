@@ -1,11 +1,11 @@
 import express from 'express'
 import userRouter from './router/userRouter'
 import internalRouter from './router/internalRouter'
-import validationErrorHandler from './midelware/validationErrorsMiddelware'
-import dbErrorHandler from './midelware/dbErrorsMiddleware'
-import globalErrorHandler from './midelware/globalErrorsMiddleware'
+import validationErrorHandler from './middleware/validationErrorsMiddelware'
+import dbErrorHandler from './middleware/dbErrorsMiddleware'
+import globalErrorHandler from './middleware/globalErrorsMiddleware'
 import { generalLogger as logger } from './logger/logger'
-import { requestFileLogger, requestConsoleLogger } from './midelware/requestLogger'
+import { requestFileLogger, requestConsoleLogger } from './middleware/requestLogger'
 
 const PORT = process.env.PORT || 8182
 const app = express()
