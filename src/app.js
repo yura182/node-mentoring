@@ -6,8 +6,11 @@ import dbErrorHandler from './middleware/dbErrorsMiddleware'
 import globalErrorHandler from './middleware/globalErrorsMiddleware'
 import { generalLogger as logger } from './logger/logger'
 import { requestFileLogger, requestConsoleLogger } from './middleware/requestLogger'
+import dotenv from 'dotenv'
 
-const PORT = process.env.PORT || 8182
+dotenv.config()
+
+const PORT = process.env.PORT
 const app = express()
 
 app.use(express.json())
