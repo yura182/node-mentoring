@@ -7,8 +7,8 @@
     "task2": "nodemon src/homework-1/task2/task-2.js",
     "task3-1": "nodemon --exec babel-node src/homework-1/task3/task-3-1.js",
     "task3-2": "nodemon --exec babel-node src/homework-1/task3/task-3-2.js",
-    "lint": "eslint ./src ./test",
-    "start": "nodemon --exec babel-node src/app.js",
+    "lint": "eslint ./src ./test --fix",
+    "start": "nodemon --exec babel-node src/start.js",
     "test": "jest test/",
     "test:coverage": "jest test/ --collect-coverage"
   },
@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.16.4",
     "eslint": "^8.4.1",
     "jest": "^27.4.5",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   }
 }
