@@ -8,7 +8,7 @@
     "task3-1": "nodemon --exec babel-node src/homework-1/task3/task-3-1.js",
     "task3-2": "nodemon --exec babel-node src/homework-1/task3/task-3-2.js",
     "lint": "eslint ./src ./test --fix",
-    "start": "nodemon --exec babel-node src/start.js",
+    "start": "nodemon --exec babel-node src/server.js",
     "test": "jest test/",
     "test:coverage": "jest test/ --collect-coverage"
   },

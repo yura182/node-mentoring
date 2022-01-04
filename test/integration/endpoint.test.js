@@ -3,6 +3,14 @@ import app from '../../src/app'
 import request from 'supertest'
 import { reloadTestDB } from './db/testUsers'
 
+function getUserData (login, password, age) {
+  return Object.freeze({ login, password, age })
+}
+
+function getExpectedUser (login, password, age, isDeleted) {
+  return Object.freeze({ login, password, age, isDeleted })
+}
+
 beforeEach(() => {
   reloadTestDB()
 })
@@ -51,14 +59,6 @@ describe('Create user', () => {
       })
   }
   )
-
-  function getUserData (login, password, age) {
-    return Object.freeze({ login, password, age })
-  }
-
-  function getExpectedUser (login, password, age, isDeleted) {
-    return Object.freeze({ login, password, age, isDeleted })
-  }
 })
 
 describe('Get user by id', () => {

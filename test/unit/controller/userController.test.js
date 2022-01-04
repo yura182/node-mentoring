@@ -69,7 +69,7 @@ describe('Create user endpoint', () => {
 
   test('should call next callback with expected error when create user failed', () => {
     userService.createUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.createUser(request, response, next)
@@ -79,7 +79,7 @@ describe('Create user endpoint', () => {
 
   test('should call next callback with expected error context when create user failed', () => {
     userService.createUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.createUser(request, response, next)
@@ -150,7 +150,7 @@ describe('Get user by id endpoint', () => {
 
   test('should call next callback with expected error when retrieve user by id failed', () => {
     userService.getUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getUserById(request, response, next)
@@ -160,7 +160,7 @@ describe('Get user by id endpoint', () => {
 
   test('should call next callback with expected error context when retrieve user by id failed', () => {
     userService.getUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getUserById(request, response, next)
@@ -217,7 +217,7 @@ describe('Update user endpoint', () => {
 
   test('should call next callback with expected error when update user failed', () => {
     userService.updateUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.updateUser(request, response, next)
@@ -227,7 +227,7 @@ describe('Update user endpoint', () => {
 
   test('should call next callback with expected error context when update user failed', () => {
     userService.updateUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.updateUser(request, response, next)
@@ -285,7 +285,7 @@ describe('Get auto suggested users endpoint', () => {
 
   test('should call next callback with expected error when retrieve auto suggested users failed', () => {
     userService.getSuggestedUsers.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getAutoSuggestUsers(request, response, next)
@@ -295,7 +295,7 @@ describe('Get auto suggested users endpoint', () => {
 
   test('should call next callback with expected error context when retrieve auto suggested users failed', () => {
     userService.getSuggestedUsers.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getAutoSuggestUsers(request, response, next)
@@ -347,7 +347,7 @@ describe('Get all users endpoint', () => {
 
   test('should call next callback with expected error when retrieve all users failed', () => {
     userService.getAllUsers.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getAllUsers(request, response, next)
@@ -357,7 +357,7 @@ describe('Get all users endpoint', () => {
 
   test('should call next callback with expected error context when retrieve all users failed', () => {
     userService.getAllUsers.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.getAllUsers(request, response, next)
@@ -412,7 +412,7 @@ describe('Delete user endpoint', () => {
 
   test('should call next callback with expected error when delete user failed', () => {
     userService.deleteUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.deleteUser(request, response, next)
@@ -422,7 +422,7 @@ describe('Delete user endpoint', () => {
 
   test('should call next callback with expected error context when delete user failed', () => {
     userService.deleteUser.mockImplementation(() => {
-      throw new Error(ERROR_MESSAGE)
+      throw error
     })
 
     userController.deleteUser(request, response, next)
