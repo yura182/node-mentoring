@@ -1,4 +1,7 @@
-const users = new Map()
+import defaultUsers from '../db/users'
+import testUsers from '../../test/integration/db/testUsers'
+
+const users = process.env.NODE_ENV === 'test' ? testUsers : defaultUsers
 
 function saveUser (user) {
   users.set(user.id, user)

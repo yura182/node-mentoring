@@ -89,3 +89,15 @@ Every method in the controllers should log the errors which should include the f
 ### Postman collection
 Path `test/resources/nodeMentoring.postman_collection.json`
 
+## Homework 4
+### TASK 4.1
+Add unit tests for User entity controller methods using Jest library (https://jestjs.io/).
+
+### TASK 4.2
+Use dotenv
+
+### Run tests scripts
+`npm run test`
+`npm run test:coverage`
+
+
