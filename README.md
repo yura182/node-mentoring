@@ -58,7 +58,7 @@ In case of any property does not meet the validation requirements or the field i
 For requests validation use special packages like joi
 
 ### Run task script
-`npm run start`
+`npm run start:dev`
 
 ### Postman collection
 Path `test/resources/nodeMentoring.postman_collection.json`
@@ -84,7 +84,7 @@ Every method in the controllers should log the errors which should include the f
 −error message
 
 ### Run task script
-`npm run start`
+`npm run start:dev`
 
 ### Postman collection
 Path `test/resources/nodeMentoring.postman_collection.json`
@@ -100,4 +100,10 @@ Use dotenv
 `npm run test`
 `npm run test:coverage`
 
+## Homework 5
 
+### Run app in docker
+Create image
+`docker build -t node-mentoring .`
+Run app in container
+`docker run -e PORT=8182 -p 8182:8182 node-mentoring`
